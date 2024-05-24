@@ -2,7 +2,7 @@ function gameObject() {
   return {
     home: {
       teamName: "Brooklyn Nets",
-      colors: ["Black, White"],
+      colors: ["Black", "White"],
       players: {
         "Alan Anderson": {
           number: 0,
@@ -59,7 +59,7 @@ function gameObject() {
 
     away: {
       teamName: "Charlotte Hornets",
-      colors: ["Turqouise, Purple"],
+      colors: ["Turqouise", "Purple"],
       players: {
         "Jeff Adrien": {
           number: 4,
@@ -115,3 +115,12 @@ function gameObject() {
     },
   };
 }
+
+console.log(gameObject());
+
+function homeTeamName() {
+  let object = gameObject();
+  return object["home"]["teamName"];
+}
+
+console.log(homeTeamName());
