@@ -204,7 +204,32 @@ function teamNames() {
   return Object.values(game).map((team) => team.teamName);
 }
 
+function playerNumbers(team) {
+  const game = gameObject();
+  const numbers = [];
+  for (const teamKey in game) {
+    if (game[teamKey].teamName === team) {
+      const playersArray = Object.values(game[teamKey].players);
+      playersArray.forEach((player) => numbers.push(player.number));
+    }
+  }
+  return numbers;
+}
+
+function playerStats(playerName) {
+  const game = gameObject();
+  for (const gameKey in game) {
+    let players = game[gameKey].players;
+    if (players[playerName]) {
+      return players[playerName];
+    }
+  }
+  return null;
+}
+
 // console.log(homeTeamName());
 // console.log(shoeSize("Mason Plumlee"));
-console.log(teamColors("Brooklyn Nets"));
-// console.log(teamNames());
+// console.log(teamColors("Brooklyn Nets"));
+// // console.log(teamNames());
+// console.log(playerNumbers("Brooklyn Nets"));
+console.log(playerStats("Mason Plumlee"));
