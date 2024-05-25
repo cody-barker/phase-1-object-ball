@@ -156,5 +156,19 @@ function numPointsScored(playerName) {
   return null;
 }
 
+function shoeSize(playerName) {
+  const game = gameObject();
+
+  for (const teamKey in game) {
+    const teamObj = game[teamKey];
+    const players = teamObj.players;
+
+    if (players[playerName]) {
+      return players[playerName].shoe;
+    }
+  }
+  return null;
+}
+
 console.log(homeTeamName());
-console.log(numPointsScored("Mason Plumlee"));
+console.log(shoeSize("Mason Plumlee"));
