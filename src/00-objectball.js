@@ -227,9 +227,45 @@ function playerStats(playerName) {
   return null;
 }
 
+// function bigShoeRebounds() {
+//   const game = gameObject();
+//   const players = [];
+//   for (const gameKey in game) {
+//     const team = game[gameKey].players;
+//     debugger;
+//     for (const player in team) {
+//       players.push({ name: player, ...team[player] });
+//     }
+//   }
+//   const shoeSizes = players.map((player) => player.shoe);
+//   const biggestShoeSize = Math.max(...shoeSizes);
+//   const playerWithBiggestShoe = players.find(
+//     (player) => player.shoe === biggestShoeSize
+//   );
+//   const rebounds = playerWithBiggestShoe.rebounds;
+//   debugger;
+//   return rebounds;
+// }
+
+function bigShoeRebounds() {
+  const game = gameObject();
+  let playerWithBiggestShoe = null;
+
+  for (const team of Object.values(game)) {
+    for (const player of Object.values(team.players)) {
+      if (!playerWithBiggestShoe || player.shoe > playerWithBiggestShoe.shoe) {
+        playerWithBiggestShoe = player;
+      }
+    }
+  }
+
+  return playerWithBiggestShoe ? playerWithBiggestShoe.rebounds : null;
+}
+
 // console.log(homeTeamName());
 // console.log(shoeSize("Mason Plumlee"));
 // console.log(teamColors("Brooklyn Nets"));
 // // console.log(teamNames());
 // console.log(playerNumbers("Brooklyn Nets"));
-console.log(playerStats("Mason Plumlee"));
+// console.log(playerStats("Mason Plumlee"));
+console.log(bigShoeRebounds());
