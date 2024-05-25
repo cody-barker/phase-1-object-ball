@@ -116,7 +116,7 @@ function gameObject() {
   };
 }
 
-console.log(gameObject());
+// console.log(gameObject());
 
 function homeTeamName() {
   let object = gameObject();
@@ -170,16 +170,22 @@ function shoeSize(playerName) {
   return null;
 }
 
+// function teamColors(teamName) {
+//   const game = gameObject();
+
+//   for (const teamKey in game) {
+//     if (game[teamKey].teamName === teamName) {
+//       return game[teamKey].colors;
+//     }
+//   }
+
+//   return null;
+// }
+
 function teamColors(teamName) {
   const game = gameObject();
-
-  for (const teamKey in game) {
-    if (game[teamKey].teamName === teamName) {
-      return game[teamKey].colors;
-    }
-  }
-
-  return null;
+  const team = Object.values(game).find((team) => team.teamName === teamName);
+  return team ? team.colors : null;
 }
 
 // function teamNames() {
@@ -200,5 +206,5 @@ function teamNames() {
 
 // console.log(homeTeamName());
 // console.log(shoeSize("Mason Plumlee"));
-// console.log(teamColors("Brooklyn Nets"));
-console.log(teamNames());
+console.log(teamColors("Brooklyn Nets"));
+// console.log(teamNames());
