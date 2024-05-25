@@ -182,6 +182,23 @@ function teamColors(teamName) {
   return null;
 }
 
+// function teamNames() {
+//   const game = gameObject();
+//   let teamNames = [];
+
+//   for (const teamKey in game) {
+//     teamNames.push(game[teamKey].teamName);
+//   }
+
+//   return teamNames;
+// }
+
+function teamNames() {
+  const game = gameObject();
+  return Object.values(game).map((team) => team.teamName);
+}
+
 // console.log(homeTeamName());
 // console.log(shoeSize("Mason Plumlee"));
-console.log(teamColors("Brooklyn Nets"));
+// console.log(teamColors("Brooklyn Nets"));
+console.log(teamNames());
