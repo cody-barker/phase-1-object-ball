@@ -170,5 +170,18 @@ function shoeSize(playerName) {
   return null;
 }
 
-console.log(homeTeamName());
-console.log(shoeSize("Mason Plumlee"));
+function teamColors(teamName) {
+  const game = gameObject();
+
+  for (const teamKey in game) {
+    if (game[teamKey].teamName === teamName) {
+      return game[teamKey].colors;
+    }
+  }
+
+  return null;
+}
+
+// console.log(homeTeamName());
+// console.log(shoeSize("Mason Plumlee"));
+console.log(teamColors("Brooklyn Nets"));
