@@ -123,4 +123,38 @@ function homeTeamName() {
   return object["home"]["teamName"];
 }
 
+// function numPointsScored(playerName) {
+//   let game = gameObject();
+//   let allPlayers = [];
+//   for (let key in game) {
+//     let teamObj = game[key];
+
+//     for (let player in teamObj.players) {
+//       allPlayers.push({
+//         name: player,
+//         ...teamObj.players[player],
+//       });
+//     }
+//   }
+//   const search = allPlayers.find((player) => player.name === playerName);
+//   debugger;
+//   return search ? search.points : null;
+// }
+
+function numPointsScored(playerName) {
+  const game = gameObject();
+
+  for (const teamKey in game) {
+    const teamObj = game[teamKey];
+    const players = teamObj.players;
+
+    if (players[playerName]) {
+      return players[playerName].points;
+    }
+  }
+
+  return null;
+}
+
 console.log(homeTeamName());
+console.log(numPointsScored("Mason Plumlee"));
